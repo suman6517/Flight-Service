@@ -17,7 +17,7 @@ async function createAirPlane(data)
        if(error.name == 'SequalizeValidationError')   // SequalizeValidationError Is a Type oF error Like User give the wrong data or wrong data type or they give the data in a Wrong Format;
        {
         let explanation = [];
-        error.errors.fpreach(err=>{
+        error.errors.foreach(err=>{
             explanation.push(err.message);
             console.log(explanation);
         });
@@ -26,8 +26,24 @@ async function createAirPlane(data)
 
       throw new Apperror("Can not create a new Airplane Object",statusCodes.INTERNAL_SERVER_ERROR );
     }
+};
+
+async function getAirPlane() 
+{
+    try 
+    {
+        const airplanes = await airplaneRepo.getAll();
+        return airplanes;
+    } 
+    catch (error) 
+    {
+        throw new Apperror("Can not Fetch all the data from Airplnes",statusCodes.INTERNAL_SERVER_ERROR );
+        
+    }
+    
 }
 export const AirPlaneService ={
     createAirPlane,
+    getAirPlane
 
 }

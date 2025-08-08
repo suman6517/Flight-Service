@@ -5,9 +5,12 @@ import { validateCreateRequest } from "../../Middlewares/index.js";
 
 const router = exprress.Router();
 
-// api/v1/airplanes
+// api/v1/airplanes POST-Request
 router.post("/", 
     validateCreateRequest,
     controllers.createAirPlane);
+
+// GET-Request
+router.get("/", controllers.getAllAirplane);
 
 export default router;

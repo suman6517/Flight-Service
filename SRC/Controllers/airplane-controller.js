@@ -31,6 +31,25 @@ async function createAirPlane(req, res)
     }
 };
 
+async function getAllAirplane(req,res) 
+{
+    try 
+    {
+        const airplanes = await AirPlaneService.getAirPlane();
+        successResponse.data = airplanes;
+        return res.status(statusCodes.OK).json(successResponse);
+    } 
+     catch (error) 
+    {
+        errorResponse.message = "Something Went Wrong Creating Airplane";
+        errorResponse.error = error;
+        return res.status(statusCodes.INTERNAL_SERVER_ERROR).json(errorResponse);
+        
+    }
+    
+}
+
 export{
-    createAirPlane
+    createAirPlane,
+    getAllAirplane
 }
