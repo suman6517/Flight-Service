@@ -1,41 +1,41 @@
-# 🚀 Node.js Base Template
+#  Node.js Base Template
 
 A comprehensive Node.js template designed with best coding practices and project management recommendations. Feel free to customize it according to your project needs!
 
-## 📁 Project Structure
+## Project Structure
 
 ### `src/` - Source Code Directory
 This folder contains all the actual source code for the project, excluding tests (consider creating a separate `test/` folder).
 
 Let's explore the `src/` folder structure:
 
-#### **📁 config**
+#### ** Config **
 Contains all configurations and setup files for libraries and modules.
 - **Example**: `server-config.js` - Sets up dotenv for cleaner environment variable usage
 - **Example**: Logging library configurations for meaningful application logs
 
-#### **📁 routes** 
+#### ** Routes** 
 Registers routes with their corresponding middleware and controllers.
 
-#### **📁 middlewares**
+#### ** Middlewares**
 Intercepts incoming requests for validation, authentication, and other preprocessing tasks.
 
-#### **📁 controllers**
+#### ** Controllers**
 Acts as the final middleware layer before business logic execution.
 - Receives incoming requests and data
 - Passes data to the business layer
 - Structures API responses and sends output
 
-#### **📁 repositories**
+#### **📁 Repositories**
 Contains all database interaction logic.
 - Raw SQL queries
 - ORM queries
 - Database-specific operations
 
-#### **📁 services**
-Houses business logic and interacts with repositories for database operations.
+#### ** Services**
+Whole business logic and interacts with repositories for database operations.
 
-#### **📁 utils**
+#### ** Utils**
 Contains helper methods, error classes, and utility functions.
 
 ## ⚙️ Project Setup
@@ -92,7 +92,12 @@ Inside the `src/config/` folder, create a file named `config.json` with the foll
   }
 }
 ```
-
+##### Or You Can do it by excuting one command 
+Go Inside `src/ Then Paste the given command in intregratrd terminal:-
+```
+npx sequelize init
+```
+- By executing the above command you will get migrations and seeders along with a `config.json` inside the Config Folder.
 ### Environment-Specific Configuration
 
 #### **Development Environment**
