@@ -20,7 +20,7 @@ class CrudRepo{
    async destroy (data)
     {
         
-        
+           
             const response = await this.model.destroy(
                 {
                     where:{
@@ -28,6 +28,11 @@ class CrudRepo{
                     }
                 }
             );
+
+            if(!response)
+            {
+                throw new Apperror("Not Able To Find The Resource With The Given Id",StatusCodes.NOT_FOUND);
+            }
             return response;
             
     }

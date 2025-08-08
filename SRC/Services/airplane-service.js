@@ -58,11 +58,33 @@ async function getOneAirplane(data)
         }
         throw new Apperror("Can not Fetch all the data from Airplnes",statusCodes.INTERNAL_SERVER_ERROR );
     }    
+};
+
+async function deleteAirplane(id) 
+{
+    try 
+    {
+         const deletedAirplane = await airplaneRepo.destroy(id);
+         return deletedAirplane;
+        
+    } 
+    catch (error) 
+    {
+        if(error.statusCode == statusCodes.NOT_FOUND)
+        {
+            throw new Apperror("The Airplane You Requested Is Not Present In Our Side " , error.statusCode);
+        }
+        throw new Apperror("Can not Delete The Airoplane",statusCodes.INTERNAL_SERVER_ERROR );
+    }
+   
+    
 }
 export const AirPlaneService ={
     createAirPlane,
     getAirPlane,
     getOneAirplane,
+    deleteAirplane,
+
 
 
 }

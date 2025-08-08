@@ -16,4 +16,7 @@ router.get("/", controllers.getAllAirplane);
 // api/v1/airplanes:id GET-Request
 router.get("/:id", controllers.getOneAirplane);
 
+ // api/v1/airplanes:id Delete-Request
+ router.delete("/:id", controllers.deleteAirplane);
+
 export default router;

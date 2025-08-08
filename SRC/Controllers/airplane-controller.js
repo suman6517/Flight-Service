@@ -67,8 +67,28 @@ async function getOneAirplane(req,res)
     
 }
 
+async function deleteAirplane(req , res) 
+{
+    try 
+    {
+        const airplane = await AirPlaneService.deleteAirplane(req.params.id);
+        successResponse.data = airplane;
+        return res.status(statusCodes.OK).json(successResponse);
+        
+    } 
+    catch (error) 
+    {
+        errorResponse.message = "Can not delete the Airplane";
+        errorResponse.error = error;
+        return res.status(error.statusCode).json(errorResponse);
+        
+    }
+    
+}
+
 export{
     createAirPlane,
     getAllAirplane,
-    getOneAirplane
+    getOneAirplane,
+    deleteAirplane
 }
