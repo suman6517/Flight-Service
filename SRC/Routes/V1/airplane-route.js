@@ -13,4 +13,7 @@ router.post("/",
 // GET-Request
 router.get("/", controllers.getAllAirplane);
 
+// api/v1/airplanes:id GET-Request
+router.get("/:id", controllers.getOneAirplane);
+
 export default router;

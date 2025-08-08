@@ -42,8 +42,27 @@ async function getAirPlane()
     }
     
 }
+async function getOneAirplane(data) 
+{
+    try 
+    {
+        const airplane = await airplaneRepo.getOne(data);
+        return airplane;
+        
+    } 
+    catch (error) 
+    {
+        if(error.statusCode == statusCodes.NOT_FOUND)
+        {
+            throw new Apperror("The Airplane You Requested Is Not Present" , error.statusCode);
+        }
+        throw new Apperror("Can not Fetch all the data from Airplnes",statusCodes.INTERNAL_SERVER_ERROR );
+    }    
+}
 export const AirPlaneService ={
     createAirPlane,
-    getAirPlane
+    getAirPlane,
+    getOneAirplane,
+
 
 }

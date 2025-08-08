@@ -1,4 +1,6 @@
 import {logger} from "../Config/index.js";
+import Apperror from "../Utils/Errors/app-errors.js";
+import { StatusCodes } from "http-status-codes";
 
 class CrudRepo{
     constructor(model)
@@ -30,9 +32,13 @@ class CrudRepo{
             
     }
 
-    async get (data)
+    async getOne (data)
     {
             const response = await this.model.findByPk(data);
+            if(!response)
+            {
+                throw new Apperror("Not Able To Find The Resource With The Given Id",StatusCodes.NOT_FOUND);
+            }
             return response;
             
         

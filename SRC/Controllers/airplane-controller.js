@@ -41,9 +41,27 @@ async function getAllAirplane(req,res)
     } 
      catch (error) 
     {
-        errorResponse.message = "Something Went Wrong Creating Airplane";
+        errorResponse.message = "Something Went Wrong Getting Airplanes";
         errorResponse.error = error;
         return res.status(statusCodes.INTERNAL_SERVER_ERROR).json(errorResponse);
+        
+    }
+    
+}
+async function getOneAirplane(req,res) 
+{
+    try 
+    {
+        const airplane = await AirPlaneService.getOneAirplane(req.params.id);
+        successResponse.data = airplane;
+        return res.status(statusCodes.OK).json(successResponse);
+
+    } 
+    catch (error)
+    {
+        errorResponse.message = "Something Went Wrong Getting Airplanes By Id";
+        errorResponse.error = error;
+        return res.status(error.statusCode).json(errorResponse);
         
     }
     
@@ -51,5 +69,6 @@ async function getAllAirplane(req,res)
 
 export{
     createAirPlane,
-    getAllAirplane
+    getAllAirplane,
+    getOneAirplane
 }
