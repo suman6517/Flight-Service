@@ -93,7 +93,7 @@ async function updateAirplane(id,data)
         }
         throw new Apperror("Can not update the Airplane You Requested",statusCodes.INTERNAL_SERVER_ERROR);
     }   
-}
+};
 
 
 export const AirPlaneService ={

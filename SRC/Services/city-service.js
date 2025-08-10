@@ -47,10 +47,30 @@ async function deleteCityService(id)
         throw new Apperror("Can not able to Delete the City", statusCodes.INTERNAL_SERVER_ERROR);
    }
 };
+async function updateCity(id,data) 
+{
+    try 
+    {
+        const updatedCity = await CityRepo.update(id,data);
+        return updatedCity;   
+    } 
+    catch (error) 
+    {
+        if(error.statusCode == statusCodes.NOT_FOUND)
+        {
+            throw new Apperror("The City Is Not Exist In Our Side Try Later",error.statusCode);
+        }
+        throw new Apperror("Can not update the City You Requested",statusCodes.INTERNAL_SERVER_ERROR);
+    }   
+};
+
+
 export const CityService = 
 {
     createCity,
     deleteCityService,
+    updateCity,
+
 
 
 }

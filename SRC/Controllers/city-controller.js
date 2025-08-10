@@ -39,7 +39,27 @@ async function deleteCity(req, res)
         
     }
 };
+
+async function updateCity(req , res)
+{
+    try 
+    {
+        const city = await CityService.updateCity(req.params.id, req.body);
+        successResponse.data = city;
+        return res.status(statusCodes.OK).json(successResponse);
+        
+    } 
+    catch (error) 
+    {
+        errorResponse.message = "Can not update The City Details";
+        errorResponse.error = error;
+        return res.status(error.statusCode).json(errorResponse);
+        
+    }
+};
+
 export{
     createCity,
     deleteCity,
+    updateCity,
 }
