@@ -1,6 +1,6 @@
 import CrudRepo from "./crud-repo.js";
 import db from "../models/index.js";
-console.log("I am working");
+
 
 
  
