@@ -1,8 +1,8 @@
-import expresss, { Router } from "express";
+import express , { Router } from "express";
 import v1Routes from "./V1/index.js";
 
 
-const router = expresss.Router();
+const router = express .Router();
 
 router.use('/v1' , v1Routes);
 

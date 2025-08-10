@@ -1,9 +1,9 @@
-import exprress from "express";
+import express from "express";
 import controllers from "../../Controllers/index.js";
 import { validateCreateRequest } from "../../Middlewares/index.js";
 
 
-const router = exprress.Router();
+const router = express.Router();
 
 // api/v1/airplanes POST-Request
 router.post("/", 

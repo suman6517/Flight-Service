@@ -13,7 +13,7 @@ async function createCity(data)
     } 
     catch (error) 
     {
-        console.log(error);
+       
         
        if(error.name == 'SequelizeValidationError' || error.name == 'SequelizeUniqueConstraintError')   // SequalizeValidationError Is a Type oF error Like User give the wrong data or wrong data type 
        {                                                                                                  // or they give the data in a Wrong Format;
