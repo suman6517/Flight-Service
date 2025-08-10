@@ -1,4 +1,3 @@
-import {logger} from "../Config/index.js";
 import Apperror from "../Utils/Errors/app-errors.js";
 import { StatusCodes } from "http-status-codes";
 

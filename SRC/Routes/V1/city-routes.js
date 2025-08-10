@@ -5,5 +5,6 @@ const router = express.Router();
 
 
 router.post("/",validateCityCreateRequest, controllers.createCity);
+router.delete("/:id" , controllers.deleteCity);
 
 export default router;

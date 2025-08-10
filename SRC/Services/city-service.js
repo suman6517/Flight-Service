@@ -28,9 +28,29 @@ async function createCity(data)
       throw new Apperror("Can not create a new City Object",statusCodes.INTERNAL_SERVER_ERROR );
     }
 };
+
+
+async function deleteCityService(id) 
+{
+   try {
+     const deletedCity = await CityRepo.destroy(id);
+     return deletedCity;
+
+
+   } 
+   catch (error) 
+   {
+    if (error.statusCode === statusCodes.NOT_FOUND)
+        {
+            throw new Apperror("The City You Requested Is Not Present In Our Side " , error.statusCode);
+        }
+        throw new Apperror("Can not able to Delete the City", statusCodes.INTERNAL_SERVER_ERROR);
+   }
+};
 export const CityService = 
 {
     createCity,
+    deleteCityService,
 
 
 }

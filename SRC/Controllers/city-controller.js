@@ -21,7 +21,25 @@ async function createCity(req, res)
         
     }
 };
+
+async function deleteCity(req, res)
+{
+    try 
+    {
+        const city = await CityService.deleteCityService(req.params.id);
+        successResponse.data = city;
+        return res.status(statusCodes.OK).json(successResponse);
+        
+    } 
+    catch (error) 
+    {
+        errorResponse.message = "Something Went Wrong Deleting City";
+        errorResponse.error = error;
+        return res.status(statusCodes.INTERNAL_SERVER_ERROR).json(errorResponse);
+        
+    }
+};
 export{
     createCity,
-    
+    deleteCity,
 }
