@@ -26,7 +26,7 @@ async function createAirPlane(data)
 
       throw new Apperror("Can not create a new Airplane Object",statusCodes.INTERNAL_SERVER_ERROR );
     }
-};
+};;
 
 async function getAirPlane() 
 {
@@ -41,7 +41,7 @@ async function getAirPlane()
         
     }
     
-}
+};
 async function getOneAirplane(data) 
 {
     try 
@@ -76,14 +76,32 @@ async function deleteAirplane(id)
         }
         throw new Apperror("Can not Delete The Airoplane",statusCodes.INTERNAL_SERVER_ERROR );
     }
-   
-    
+};
+
+async function updateAirplane(id,data) 
+{
+    try 
+    {
+        const updateAirPlane = await airplaneRepo.update(id,data);
+        return updateAirPlane;   
+    } 
+    catch (error) 
+    {
+        if(error.statusCode == statusCodes.NOT_FOUND)
+        {
+            throw new Apperror("The Airplane Is Not Exist In Our Side Try Later",error.statusCode);
+        }
+        throw new Apperror("Can not update the Airplane You Requested",statusCodes.INTERNAL_SERVER_ERROR);
+    }   
 }
+
+
 export const AirPlaneService ={
     createAirPlane,
     getAirPlane,
     getOneAirplane,
     deleteAirplane,
+    updateAirplane,
 
 
 

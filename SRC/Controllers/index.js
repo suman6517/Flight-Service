@@ -1,5 +1,5 @@
 import info_Controller from "./info-controller.js";
-import {createAirPlane , deleteAirplane, getAllAirplane , getOneAirplane , } from "./airplane-controller.js";
+import {createAirPlane , deleteAirplane, getAllAirplane , getOneAirplane , updateAirplane} from "./airplane-controller.js";
 import {createCity} from "./city-controller.js";
 export default {
     info_Controller,
@@ -7,6 +7,7 @@ export default {
     getAllAirplane,
     getOneAirplane,
     deleteAirplane,
+    updateAirplane,
 
     // The City Controllers Export
     createCity

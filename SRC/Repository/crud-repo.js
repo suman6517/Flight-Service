@@ -61,14 +61,18 @@ class CrudRepo{
     async update (id,data) //(Data -> Object)
     {
         
-            const response = await this.model.update(data , {
+            const [response] = await this.model.update(data , {
                where:{
                       id:id
                     }
         });
-            return response;
-            
+        if (response === 0) 
+        {
+            throw new Apperror("Not Able To Find The Resource With The Given Id",StatusCodes.NOT_FOUND);
+        };
+      
        
+            return response;     
     }
 }
 

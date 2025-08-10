@@ -47,7 +47,7 @@ async function getAllAirplane(req,res)
         
     }
     
-}
+};
 async function getOneAirplane(req,res) 
 {
     try 
@@ -65,7 +65,7 @@ async function getOneAirplane(req,res)
         
     }
     
-}
+};
 
 async function deleteAirplane(req , res) 
 {
@@ -84,11 +84,29 @@ async function deleteAirplane(req , res)
         
     }
     
+};
+async function updateAirplane(req , res)
+{
+    try 
+    {
+        const airplane = await AirPlaneService.updateAirplane(req.params.id, req.body);
+        successResponse.data = airplane;
+        return res.status(statusCodes.OK).json(successResponse);
+        
+    } 
+    catch (error) 
+    {
+        errorResponse.message = "Can not update The Airplane Details";
+        errorResponse.error = error;
+        return res.status(error.statusCode).json(errorResponse);
+        
+    }
 }
 
 export{
     createAirPlane,
     getAllAirplane,
     getOneAirplane,
-    deleteAirplane
+    deleteAirplane,
+    updateAirplane
 }
