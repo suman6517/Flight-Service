@@ -11,7 +11,7 @@ export default (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.City , {
         foreignKey:"cityId",
-        onDelete:"CASCADE",
+        
         onUpdate:"CASCADE"
       });
     }
