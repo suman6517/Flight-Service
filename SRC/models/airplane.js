@@ -9,6 +9,10 @@ export default (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.hasMany(models.Flight , {
+        foreignKey:"flightId",
+        onDelete:"CASCADE",
+      })
     }
   }
   Airplane.init({
