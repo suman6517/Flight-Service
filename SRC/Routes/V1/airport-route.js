@@ -14,7 +14,7 @@ router.post("/",
 router.get("/", controllers.getAllAirport);
 
 // api/v1/airport:id GET-Request
-router.get("/:id", controllers.getAllAirport);
+router.get("/:id", controllers.getOneAirport);
 
  // api/v1/airport:id Delete-Request
  router.delete("/:id", controllers.deleteAirport);
