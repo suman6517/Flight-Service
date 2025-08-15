@@ -18,11 +18,11 @@ export default (sequelize, DataTypes) => {
         foreignKey:"code",
         onDelete:"CASCADE",
       });
-      this.hasMany(models.Flight , {
+      this.hasMany(models.Flight , { 
         foreignKey:"code",
         onDelete:"CASCADE",
       });
-    }
+    }x
   }
   Airport.init({
     name: {
