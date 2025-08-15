@@ -46,6 +46,26 @@ async function creatFlight(req, res)
 };
 
 
+async function getAllFlights(req,res)
+{
+    try 
+    {
+        const flights = await FlightService.getAllFlights(req.query);
+        successResponse.data = flights;
+        return res.status(statusCodes.CREATED).json(successResponse);
+    } 
+    catch (error)
+    { 
+         errorResponse.message = "Something Went Wrong Finding Flights";
+         errorResponse.error = error;
+        return res.status(statusCodes.INTERNAL_SERVER_ERROR).json(errorResponse);
+        
+    }
+    
+}
+
+
 export{
     creatFlight,
+    getAllFlights
 }

@@ -2,7 +2,7 @@ import info_Controller from "./info-controller.js";
 import {createAirPlane , deleteAirplane, getAllAirplane , getOneAirplane , updateAirplane} from "./airplane-controller.js";
 import {createCity , deleteCity, updateCity} from "./city-controller.js";
 import { createAirport,deleteAirport,getAllAirport,getOneAirport,updateAirport } from "./airport-controller.js";
-import { creatFlight } from "./flight-controller.js";
+import { creatFlight,getAllFlights } from "./flight-controller.js";
 export default {
     info_Controller,
     createAirPlane,
@@ -24,7 +24,8 @@ export default {
     updateAirport,
 
     //Flight Controller 
-    creatFlight
+    creatFlight,
+    getAllFlights
     
 
 

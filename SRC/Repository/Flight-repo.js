@@ -8,5 +8,15 @@ class FlightRepository extends CrudRepo{
          super(db.Flight);
         
     }
+   async getAllFlights(filter,sort) //Custom Function to filter all the quaries of The Customer 
+    {
+         const response = await db.Flight.findAll(
+            {
+                where:filter,
+                order:sort
+            }
+         );
+         return response;
+    }
 } 
 export default FlightRepository;

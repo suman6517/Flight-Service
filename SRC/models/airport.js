@@ -15,14 +15,14 @@ export default (sequelize, DataTypes) => {
         onUpdate:"CASCADE"
       });
       this.hasMany(models.Flight , {
-        foreignKey:"code",
+        foreignKey: 'departureAirportId',
         onDelete:"CASCADE",
       });
       this.hasMany(models.Flight , { 
-        foreignKey:"code",
+        foreignKey:"arrivalAirportID",
         onDelete:"CASCADE",
       });
-    }x
+    }
   }
   Airport.init({
     name: {
@@ -35,7 +35,7 @@ export default (sequelize, DataTypes) => {
       allowNull:false,
       unique:true
     },
-    address:{ 
+    address:{    
       type:DataTypes.STRING,
       unique:true
     },

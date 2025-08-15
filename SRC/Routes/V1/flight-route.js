@@ -10,4 +10,7 @@ router.post("/",
     validateFlightCreateRequest,
     controllers.creatFlight);
 
+// GET-Request
+router.get("/", controllers.getAllFlights);
+
 export default router;
