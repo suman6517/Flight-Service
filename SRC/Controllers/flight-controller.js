@@ -32,6 +32,8 @@ async function creatFlight(req, res)
             boardingGate:req.body.boardingGate,
             totalSeates:req.body.totalSeates
         });
+        console.log("I am Working");
+        
         successResponse.data = flight;
         return res.status(statusCodes.CREATED).json(successResponse);
         

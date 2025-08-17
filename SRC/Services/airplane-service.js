@@ -17,7 +17,7 @@ async function createAirPlane(data)
        if(error.name == 'SequalizeValidationError')   // SequalizeValidationError Is a Type oF error Like User give the wrong data or wrong data type or they give the data in a Wrong Format;
        {
         let explanation = [];
-        error.errors.foreach(err=>{
+        error.errors.forEach(err=>{
             explanation.push(err.message);
             console.log(explanation);
         });

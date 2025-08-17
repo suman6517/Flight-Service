@@ -32,7 +32,7 @@ export default (sequelize, DataTypes) => {
       allowNull:false,
     },
     flightId: {
-      type:DataTypes.INTEGER,
+       type:DataTypes.INTEGER,
        allowNull:false,
     },
     departureAirportId:{
