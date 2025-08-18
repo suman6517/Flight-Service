@@ -11,15 +11,18 @@ export default (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.City , {
         foreignKey:"cityId",
-        
         onUpdate:"CASCADE"
       });
       this.hasMany(models.Flight , {
         foreignKey: 'departureAirportId',
+        as:"departureAirport",
+         targetKey: "code",  
         onDelete:"CASCADE",
       });
       this.hasMany(models.Flight , { 
         foreignKey:"arrivalAirportID",
+        as:"arrivalAirport",
+         targetKey: "code",  
         onDelete:"CASCADE",
       });
     }

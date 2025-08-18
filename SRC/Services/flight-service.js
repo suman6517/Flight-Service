@@ -103,14 +103,13 @@ async function getAllFlights(query)
   if (query.sort) 
 {
     const params = query.sort.split(",");
-
     const sortFilters = params.map((param) => param.split("_"));
     sortFilter = sortFilters;
-  }
+}
 
   try
 {
-    const flights = await FlightRepos.getAllFlights(customeFilter, sortFilter);
+    const flights = await FlightRepos.getAllFlights(customeFilter);
     return flights;
   } 
   catch (error) 

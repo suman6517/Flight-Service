@@ -11,6 +11,7 @@ export default (sequelize, DataTypes) => {
       // define association here
       this.hasMany(models.Flight , {
         foreignKey:"flightId",
+        as:"airplaneDetails",
         onDelete:"CASCADE",
       })
     }
