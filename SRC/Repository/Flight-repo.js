@@ -13,7 +13,10 @@ class FlightRepository extends CrudRepo{
          const response = await db.Flight.findAll(
             {
                 where:filter,
-                order:sort
+                order:sort,
+                // include:{
+                //     model:db.Airplane
+                // }
             }
          );
          return response;
