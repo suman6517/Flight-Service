@@ -13,4 +13,6 @@ router.post("/",
 // GET-Request
 router.get("/", controllers.getAllFlights);
 
+router.get("/:id", controllers.getOneFlight);
+
 export default router;

@@ -64,10 +64,31 @@ async function getAllFlights(req,res)
         
     }
     
-}
+};
+
+async function getOneFlight(req,res) 
+{
+    try 
+    {
+        const flight = await FlightService.getOneFlight(req.params.id);
+        successResponse.data = flight;
+        return res.status(statusCodes.OK).json(successResponse);
+
+    } 
+    catch (error)
+    {
+        errorResponse.message = "Something Went Wrong Getting Flight By Id";
+        errorResponse.error = error;
+        return res.status(error.statusCode).json(errorResponse);
+        
+    }
+    
+};
 
 
 export{
     creatFlight,
-    getAllFlights
+    getAllFlights,
+    getOneFlight,
+
 }

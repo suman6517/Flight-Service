@@ -120,8 +120,26 @@ async function getAllFlights(query)
     );
   }
 };
+async function getOneFlight(id) 
+{
+    try 
+    {
+        const flight = await FlightRepos.getOne(id);
+        return flight;
+        
+    } 
+    catch (error) 
+    { 
+        if(error.statusCode == statusCodes.NOT_FOUND)
+        {
+            throw new Apperror("The Flight You Requested Is Not Present" , error.statusCode);
+        }
+        throw new Apperror("Can not Fetch the data from Flight",statusCodes.INTERNAL_SERVER_ERROR );
+    }    
+};
 
 export const FlightService = {
   createFlight,
   getAllFlights,
+  getOneFlight
 };
