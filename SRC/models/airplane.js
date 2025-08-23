@@ -28,7 +28,7 @@ export default (sequelize, DataTypes) => {
     },
     capacity: {
         type:DataTypes.INTEGER ,
-      allowNull: false,
+        allowNull: false,
     }
   }, {
     sequelize,

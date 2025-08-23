@@ -137,9 +137,27 @@ async function getOneFlight(id)
         throw new Apperror("Can not Fetch the data from Flight",statusCodes.INTERNAL_SERVER_ERROR );
     }    
 };
+async function updateSeates (data) 
+{
+  try 
+  {
+    const response = await FlightRepos.updateRemaningSeats(data.flightId,data.seats,data.decreamwnt);
+    return response;
+    
+  }
+   catch (error) 
+  {
+    
+    throw new Apperror("Can not Update The Seats",statusCodes.INTERNAL_SERVER_ERROR );
+    
+  }
+  
+};
 
 export const FlightService = {
   createFlight,
   getAllFlights,
-  getOneFlight
+  getOneFlight,
+  updateSeates,
+
 };

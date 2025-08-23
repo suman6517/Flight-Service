@@ -12,8 +12,19 @@ function validateFlightCreateRequest(req,res,next)
     }
     next();
 }
-
+function validateSeatUpdateRequest(req,res,next)
+{
+    if(!req.body.seats)
+    {
+        errorResponse.message = "Something Went Wrong Req Url Flight when Updating Seats";
+        
+        errorResponse.error = new Apperror([{explanation : "Some Requested Data Not Found In The Incoming Data Form"} ],statusCodes.BAD_REQUEST );
+        return res.status(statusCodes.BAD_REQUEST).json(errorResponse);
+    }
+    next();
+}
 export{
     validateFlightCreateRequest,
+    validateSeatUpdateRequest,
 
 }

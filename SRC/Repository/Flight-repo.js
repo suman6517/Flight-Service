@@ -1,8 +1,10 @@
 import CrudRepo from "./crud-repo.js";
 import db from "../models/index.js";
 import { Sequelize } from "sequelize";
+import{addRowLockOnFlights} from "./queries.js"
 
-class FlightRepository extends CrudRepo{
+class FlightRepository extends CrudRepo
+{
 
     constructor()
     {
@@ -61,6 +63,27 @@ class FlightRepository extends CrudRepo{
             }
          );
          return response;
+    }
+
+    async updateRemaningSeats(flightId,seats,decrese = true)      // If the Parameter is true It Will Decrease The Seats Else It Will Increase The Seats
+    {
+        await db.sequelize.query(addRowLockOnFlights(flightId));
+
+        const flight = await db.Flight.findByPk(flightId);
+        if (!flight)
+        {
+            throw new Apperror("Flight Not Found",statusCodes.NOT_FOUND);
+        }
+        if (parseInt(decrese) )
+        {
+            await flight.decrement("totalSeates", {by:seats});
+        }
+        else
+        {
+             await flight.increment("totalSeates", {by:seats});
+        }
+        return flight;
+
     }
 } 
 export default FlightRepository;

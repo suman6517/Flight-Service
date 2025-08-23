@@ -85,10 +85,33 @@ async function getOneFlight(req,res)
     
 };
 
+async function updateSeats(req , res)
+{
+    try 
+    {
+        const response = await FlightService.updateSeates({
+            flightId:req.params.id,
+            seats:req.body.seats,
+            decrement:req.body.decrement
+        });
+        successResponse.data = response;
+        return res.status(statusCodes.OK).json(successResponse);
+        
+    } 
+    catch (error) 
+    {
+        errorResponse.message = "Can not update The Flight Seats";
+        errorResponse.error = error;
+        return res.status(error.statusCode).json(errorResponse);
+        
+    }
+};
+
 
 export{
     creatFlight,
     getAllFlights,
     getOneFlight,
+    updateSeats,
 
 }
