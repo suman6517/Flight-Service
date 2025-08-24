@@ -88,7 +88,7 @@ async function getOneFlight(req,res)
 async function updateSeats(req , res)
 {
     try 
-    {
+    {   
         const response = await FlightService.updateSeates({
             flightId:req.params.id,
             seats:req.body.seats,

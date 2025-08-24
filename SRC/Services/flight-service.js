@@ -141,7 +141,7 @@ async function updateSeates (data)
 {
   try 
   {
-    const response = await FlightRepos.updateRemaningSeats(data.flightId,data.seats,data.decreamwnt);
+    const response = await FlightRepos.updateRemaningSeats(data.flightId,data.seats,data.decrement);
     return response;
     
   }
