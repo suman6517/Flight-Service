@@ -1,50 +1,51 @@
-#  Flight Service
+# Flight Service ✈️
+
 The Flight Service is a core microservice-based API responsible for managing all flight, airport, and city-related operations, including creating, updating, deleting, and retrieving flight data.
 
-It serves as the primary data provider for other services such as the **[Flight Booking Service](https://github.com/suman6517/Flight-Booking-Service)** and **[Notification Service ](https://github.com/suman6517/flight-notification-service)**.  Ensuring clean separation of concerns, scalability, and maintainable architecture across the system.
+It serves as the primary data provider for other services such as the **[Flight Booking Service](https://github.com/suman6517/Flight-Booking-Service)** and **[Notification Service](https://github.com/suman6517/flight-notification-service)**. Ensuring clean separation of concerns, scalability, and maintainable architecture across the system.
 
-This service is built as part of a microservice-oriented flight booking platform, inspired by real-world systems like MakeMyTrip and Expedia.
-While the Flight Service handles all flight-related business logic, other microservices manage bookings, seat availability, and user notifications, working together to form a complete, production-style backend system.
+This service is built as part of a microservice-oriented flight booking platform, inspired by real-world systems like MakeMyTrip and Expedia. While the Flight Service handles all flight-related business logic, other microservices manage bookings, seat availability, and user notifications, working together to form a complete, production-style backend system.
 ## Project File Structure
 
+---
 ### `src/` - Source Code Directory
 This folder contains all the actual source code for the project, excluding tests (consider creating a separate `test/` folder).
 
 Let's explore the `src/` folder structure:
 
-#### ** Config **
+-   **`Config`**:
 Contains all configurations and setup files for libraries and modules.
-- **Example**: `server-config.js` - Sets up dotenv for cleaner environment variable usage
-- **Example**: Logging library configurations for meaningful application logs
+- **`Example`**: `server-config.js` - Sets up the server with dotenv for cleaner environment variable usage
+- **`Example`**: Logging library configurations for meaningful application logs
 
-#### ** Routes** 
+####  Routes 
 Registers routes with their corresponding middleware and controllers.
 
-#### ** Middlewares**
+####  Middlewares
 Intercepts incoming requests for validation, authentication, and other preprocessing tasks.
 
-#### ** Controllers**
+####  Controllers
 Acts as the final middleware layer before business logic execution.
 - Receives incoming requests and data
 - Passes data to the business layer
 - Structures API responses and sends output
 
-#### **📁 Repositories**
+####  Repositories
 Contains all database interaction logic.
 - Raw SQL queries
 - ORM queries
 - Database-specific operations
 
-#### ** Services**
+####  Services
 Whole business logic and interacts with repositories for database operations.
 
-#### ** Utils**
+####  Utils
 Contains helper methods, error classes, and utility functions.
 
 ## ⚙️ Project Setup
 
 ### Step 1: Download and Setup
-1. Download this template from GitHub
+1. Clone this repo in your local machine from GitHub
 2. Open it in your favorite text editor
 
 ### Step 2: Environment Configuration
@@ -120,5 +121,3 @@ For test or production environments:
 npm run dev
 ```
 
-
-  
