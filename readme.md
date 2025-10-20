@@ -1,8 +1,11 @@
-#  Node.js Base Template
+#  Flight Service
+The Flight Service is a core microservice-based API responsible for managing all flight, airport, and city-related operations, including creating, updating, deleting, and retrieving flight data.
 
-A comprehensive Node.js template designed with best coding practices and project management recommendations. Feel free to customize it according to your project needs!
+It serves as the primary data provider for other services such as the **[Flight Booking Service](https://github.com/suman6517/Flight-Booking-Service)** and **[Notification Service ](https://github.com/suman6517/flight-notification-service)**.  Ensuring clean separation of concerns, scalability, and maintainable architecture across the system.
 
-## Project Structure
+This service is built as part of a microservice-oriented flight booking platform, inspired by real-world systems like MakeMyTrip and Expedia.
+While the Flight Service handles all flight-related business logic, other microservices manage bookings, seat availability, and user notifications, working together to form a complete, production-style backend system.
+## Project File Structure
 
 ### `src/` - Source Code Directory
 This folder contains all the actual source code for the project, excluding tests (consider creating a separate `test/` folder).
