@@ -19,7 +19,6 @@ router.get("/:id", controllers.getOneAirplane);
  // api/v1/airplanes:id Delete-Request
  router.delete("/:id", controllers.deleteAirplane);
 
-
  // api/v1/airplanes:id PATCH-Request
  router.patch("/:id", controllers.updateAirplane);
 
